@@ -1,20 +1,25 @@
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BasketTest {
 
         @Test
         @DisplayName("Add two numbers")
-        void add() {
+        void addItem() {
             // Arrange
-            Item item1 = new Item();
             Basket basket1 = new Basket();
-
+            Item item1 = new Item("item");
 
             // Act
-            Array[] result = Basket.add(item1);
+            ArrayList<Object> result = Basket.addItem(item1.name);
 
             // Assert
-            assertEquals(BasketItems, result);
+            assertEquals(Basket.basketItems, result);
 
     }
 }
