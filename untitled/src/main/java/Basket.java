@@ -27,8 +27,14 @@ public class Basket {
             return "Sorry basket is full";
         } else
             return "basket not full";
-
     }
+
+    public void increaseCapacity(int num){
+
+        capacity += num;
+    }
+
+
 }
 
 

@@ -54,6 +54,23 @@ public class BasketTest {
         System.out.println(basket1.basketItems);
         // Assert
         assertEquals(1, result);
-
     }
+
+    @Test
+    @DisplayName("Increase the capacity")
+    void increaseCapacity() {
+        // Arrange
+        Basket basket1 = new Basket(1);
+        Item item1 = new Item("item");
+
+        // Act
+        basket1.increaseCapacity(5);
+        int result = basket1.capacity;
+        System.out.println(basket1.capacity);
+        // Assert
+        assertEquals(6, result);
+    }
+
+
+
 }
