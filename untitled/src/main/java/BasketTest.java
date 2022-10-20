@@ -72,7 +72,7 @@ public class BasketTest {
     }
     @Test
     @DisplayName("Notified when adding duplicate items")
-    void isIteminBasket() {
+    void isItemInBasket() {
         // Arrange
         Basket basket1 = new Basket(1);
         Item item1 = new Item("item");
@@ -80,10 +80,23 @@ public class BasketTest {
         // Act
         basket1.addItem(item1);
         basket1.addItem(item1);
-        String result = basket1.isIteminBasket(item1);
+        String result = basket1.isItemInBasket(item1);
         System.out.println(basket1.basketItems);
         // Assert
         assertEquals("The item is already in the basket", result);
+    }
+    @Test
+    @DisplayName("Cannot remove an item that is not in the basket")
+    void isItemInBasket() {
+        // Arrange
+        Basket basket1 = new Basket(1);
+        Item item1 = new Item("item");
+
+        // Act
+        basket1.removeItem(item1);
+        String result = basket1.removeItem(item1);
+        // Assert
+        assertEquals("The item is not in basket", result);
     }
 
 

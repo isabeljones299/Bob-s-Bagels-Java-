@@ -8,18 +8,18 @@ public class Basket {
         this.basketItems = new ArrayList<>();
     }
 
-    public ArrayList<Item> addItem(Item anything) {
+    public String addItem(Item anything) {
         System.out.println(isFull());
         if (isFull() == "basket not full") {
             basketItems.add(anything);
-            return basketItems;
+            return this.isItemInBasket(anything);
         }
-        return basketItems;
+        return "Item added";
     }
 
-    public ArrayList<Item> removeItem(Item anything) {
+    public Boolean removeItem(Item anything) {
         basketItems.remove(anything);
-        return basketItems;
+        return basketItems.remove(anything);
     }
 
     public String isFull() {
@@ -27,6 +27,16 @@ public class Basket {
             return "Sorry basket is full";
         } else
             return "basket not full";
+    }
+
+    public String isItemInBasket(Item anyItem) {
+        String output = "This item is not in basket";
+        for (Item i: basketItems) {
+            if (i == anyItem) {
+                output = "The item is already in the basket";
+               // return "The item is already in the basket";
+            }
+        } return output;
     }
 
     public void increaseCapacity(int num){
