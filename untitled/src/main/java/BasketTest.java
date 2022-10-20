@@ -72,17 +72,18 @@ public class BasketTest {
     }
     @Test
     @DisplayName("Notified when adding duplicate items")
-    void increaseCapacity() {
+    void isIteminBasket() {
         // Arrange
         Basket basket1 = new Basket(1);
         Item item1 = new Item("item");
 
         // Act
-        basket1.increaseCapacity(5);
-        int result = basket1.capacity;
-        System.out.println(basket1.capacity);
+        basket1.addItem(item1);
+        basket1.addItem(item1);
+        String result = basket1.isIteminBasket(item1);
+        System.out.println(basket1.basketItems);
         // Assert
-        assertEquals(6, result);
+        assertEquals("The item is already in the basket", result);
     }
 
 
